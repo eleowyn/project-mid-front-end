@@ -32,7 +32,7 @@ const Navbar = () => {
             <GoCodeReview />
           </motion.div>
           <span className="self-center text-base font-semibold text-neutral-300 md:text-2xl">
-            Akshay | Full Stack Dev
+            Elshera Dahlan | Designer & Developer
           </span>
         </div>
         <button

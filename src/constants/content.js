@@ -4,7 +4,7 @@ import jsIcon from "/assets/icons/frontend/js.svg";
 import reactIcon from "/assets/icons/frontend/react.svg";
 import reduxIcon from "/assets/icons/frontend/redux.svg";
 import bootstrapIcon from "/assets/icons/frontend/bootstrap.svg";
-import materialUiIcon from "/assets/icons/frontend/material-ui.svg";
+import materialUiIconad from "/assets/icons/frontend/material-ui.svg";
 import tailwindCssIcon from "/assets/icons/frontend/tailwind-css.svg";
 
 import pythonIcon from "/assets/icons/backend/python.svg";
@@ -26,12 +26,12 @@ import awsIcon from "/assets/icons/others/aws.svg";
 import firebaseIcon from "/assets/icons/others/firebase.svg";
 import dockerIcon from "/assets/icons/others/docker.svg";
 import postmanIcon from "/assets/icons/others/postman.png";
-import terraformIcon from "/assets/icons/others/terraform.svg";
+import adobeae from "/assets/icons/others/adobe-after-effects.svg";
 import figmaIcon from "/assets/icons/others/figma.svg";
 
 import awsProfessionalBadge from "/assets/images/aws-professional-badge.png";
 import awsDeveloperBadge from "/assets/images/aws-developer-badge.png";
-import awsSolutionBadge from "/assets/images/aws-solutions-badge.png";
+import firstplace from "/assets/images/1stplace-scientific-writing.jpg";
 
 export const ABOUT_CONTENT = `Motivated and Experienced as a UI/UX Designer. Interested in the field of technology, especially in the field of engineering, both in the scope of computers. informatics, and electronics. Training and developing in the fields of designing, mathematics and computer to bring contributions to the world.`;
 
@@ -54,26 +54,18 @@ export const TECHNOLOGIES = {
     { icon: githubIcon, name: "GitHub" },
     { icon: firebaseIcon, name: "Firebase" },
     { icon: figmaIcon, name: "Figma" },
+    { icon: adobeae, name: "AE" },
   ],
 };
 
 export const EXPERIENCES = [
   {
-    year: "Jan 2022 - Present",
-    role: "Software Engineer Level-2",
-    company: "ConsultAdd Inc.",
-    description: `As a Full Stack Developer, I designed and developed user interfaces for web applications using React and created RESTful APIs with serverless Node.js and Django. I utilized AWS for cloud integration and worked with offshore clients on their projects. Additionally, I contributed to multiple in-house products, encompassing both web and mobile applications.`,
+    year: "Jan 2024 - Present",
+    role: "Capcut Template Creator",
+    company: "CAPCUT",
+    description: `As a video editor using AE, I decided to try creating templates at capcut as a freelancing job. Designed and published over 30 templates. 21.1K views every month and more than 500 downloads`,
     technologies: [
-      "AWS",
-      "Serverless",
-      "Django",
-      "DRF",
-      "MERN",
-      "NestJS",
-      "Flutter",
-      "Expo",
-      "Firebase",
-      "Prisma",
+      "AE",
     ],
   },
 ];
@@ -110,78 +102,45 @@ export const EDUCATION = [
 
 export const PROJECTS = [
   {
-    title: "STUDY TRACKER - WINDOWS FORM APP",
+    title: "Study Tracker - Dekstop App",
     description:
       "Developed a desktop-based application using C# and MySQL to tracks students daily, work or school life. Provided with features to edit profile which include username, user's name, email, and password. Dynamic Calendar tracker for track, delete and display events. To-list of task and any possibilites that important to be done, Score Tracker for student who wants to calculate and predict their score, Pomodoro with timer, Flashcards for Help with studying, Diary for save your experiences each day and litle memory games ",
     technologies: [
-      "Dart",
-      "Flutter",
-      "Node",
-      "React",
-      "ExpressJS",
-      "Mongodb",
-      "Firebase",
+      "C#",
+      "MySQL",
     ],
-    githubLink: "https://apkcombo.com/qpie/com.qpie.getyourtoken/",
+    githubLink: "https://github.com/eleowyn/Study101Project-Visual-Programming.git",
   },
   {
-    title: "Meal App",
+    title: "UNKLAB Shop",
     description:
-      'Developed a meal app using Flutter featuring a beautiful and simple UI. Users can search for meals across various categories and apply filters such as "Only Vegetarian." The app allows users to mark dishes as favorites and provides detailed descriptions, including ingredients and cooking procedures.',
-    technologies: ["Dart", "Flutter"],
-    githubLink: "https://github.com/SoulCoder65/mealapp",
+      'Developed a simple e-commerce website for students or any person at UNKLAB to shop at UNKLAB shop, provided with merchandise, school supplies, etc.',
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Vite"],
+    githubLink: "https://github.com/eleowyn/unklab-shop-final-frontend.git",
   },
   {
-    title: "Twitter-Bot",
+    title: "Lost and Found UNKLAB",
     description:
-      "Created a Twitter bot using the Tweepy API and Tkinter. The bot can read tweets, write tweets, check followers and following, update profiles, search users, manage blocked users, and search trends.",
-    technologies: ["Python", "Tweepy API", "Tkinter"],
-    githubLink: "https://github.com/SoulCoder65/Twitter-Bot",
-  },
-  {
-    title: "Cric Show",
-    description:
-      "Created a React JS cricket score web application that displays current match results, scores, player stats, and recent matches using the Cric API.",
-    technologies: ["ReactJS", "Bootstrap", "Cric API"],
-    githubLink: "https://github.com/SoulCoder65/CricShow",
-  },
-  {
-    title: "Instagram Bot",
-    description:
-      "Created an Instagram bot using Tkinter and Selenium WebDriver. The bot can count the number of posts, followers, and following for any user or page, provide lists of followers and following, and like posts based on hashtags, pages, or specific users.",
-    technologies: ["Python", "Selenium", "TKinter"],
-    githubLink: "https://github.com/SoulCoder65/Instagram-Bot",
-  },
-  {
-    title: "Bill Management System",
-    description:
-      "Developed a Bill Management System using Tkinter (Python) for shopkeepers to calculate item prices including GST and generate bills. The system also allows saving bills as text files and searching for them using bill numbers.",
-    technologies: ["Python", "TKinter"],
-    githubLink: "https://github.com/SoulCoder65/Bill-Management-System",
-  },
-  {
-    title: "Github Search",
-    description:
-      "Created a GitHub stats website using the GitHub API to search for user information, including stats, followers, following, gists, profile details, programming languages used, repositories, and forked repos. Data is presented in charts and graph formats using React JS and React FusionCharts.",
-    technologies: ["ReactJS"],
-    githubLink: "https://github.com/SoulCoder65/githubsearch",
+      "Created a simple Lost and Found website for student's and teacher or workers at UNKLAB to find their lost things and to helped other people find their important things",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    githubLink: "https://github.com/eleowyn/web-design-project.git",
   },
 ];
 
 export const CERTIFICATIONS = [
   {
-    title: "AWS Certified Solutions Architect – Professional",
-    issuer: "Amazon Web Services Training and Certification",
-    date: "April 2024",
-    link: "https://www.credly.com/badges/00c91b85-4948-4275-88c3-d143e0e888e7/public_url",
-    badge: awsProfessionalBadge,
+    title: "",
+    issuer: "",
+    date: "",
+    link: "",
+    badge: "",
   },
   {
-    title: "AWS Certified Solutions Architect – Associate",
-    issuer: "Amazon Web Services Training and Certification",
-    date: "May 2023",
-    link: "https://www.credly.com/badges/c356f476-c70b-4bd3-8af8-131497d7bb3a/public_url",
-    badge: awsSolutionBadge,
+    title: "First Place Scientific Writing",
+    issuer: "Manado University",
+    date: "Feb 2023",
+    link: "",
+    badge: firstplace,
   },
 ];
 
