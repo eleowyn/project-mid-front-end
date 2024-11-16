@@ -1,9 +1,35 @@
+console.log("Projects.jsx is renderisssng");
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { PROJECTS } from "../constants/content";
+import { useEffect, useState } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { database } from '../firebase.js'; // Ensure this is correct
 
 const Projects = () => {
+  const [firebaseProjects, setFirebaseProjects] = useState([]);
+
+  useEffect(() => {
+    const projectsRef = ref(database, "projects");
+  
+    const unsubscribe = onValue(projectsRef, (snapshot) => {
+      const projectsData = [];
+      snapshot.forEach((childSnapshot) => {
+        projectsData.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val(),
+        });
+      });
+  
+      console.log("Updated Projects from Firebase:", projectsData); // Debug
+      setFirebaseProjects(projectsData);
+    });
+  
+    return () => unsubscribe();
+  }, []);
+  
+
   return (
     <Element name="projects" className="border-b border-neutral-900 pb-20">
       <motion.h1
