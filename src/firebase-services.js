@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, push, update, remove } from "firebase/database";
 import { ref, update, remove, onValue } from 'firebase/database';
-import { database } from './firebase.js'; // your existing firebase config
+import { database } from '../firebase.js'; // your existing firebase config
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJ-cbXb-aiVmon3Dhfk_qvI3bahm6kVbU",

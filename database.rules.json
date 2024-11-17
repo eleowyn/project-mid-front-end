@@ -1,0 +1,34 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "projects": {
+      ".read": true,
+      ".write": true,
+      "$projectId": {
+        ".validate": "newData.hasChildren(['title', 'description', 'technologies'])"
+      }
+    },
+    "experiences": {
+      ".read": true,
+      ".write": true,
+      "$experienceId": {
+        ".validate": "newData.hasChildren(['year', 'role', 'company', 'description'])"
+      }
+    },
+    "education": {
+      ".read": true,
+      ".write": true,
+      "$educationId": {
+        ".validate": "newData.hasChildren(['institution', 'degree', 'year'])"
+      }
+    },
+    "certifications": {
+      ".read": true,
+      ".write": true,
+      "$certificationId": {
+        ".validate": "newData.hasChildren(['title', 'issuer', 'date'])"
+      }
+    }
+  }
+}
