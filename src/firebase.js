@@ -1,3 +1,4 @@
+// firebase.js
 // Import required Firebase modules
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
