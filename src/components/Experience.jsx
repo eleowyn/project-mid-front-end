@@ -1,7 +1,8 @@
-//Experience.jsx
+import { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
-import { EXPERIENCES } from "../constants/content";
+import { ref, onValue } from "firebase/database";
+import { database } from "../firebase";
 
 const ExperienceStep = ({ year, role, company, description, technologies }) => (
   <motion.div
@@ -18,12 +19,12 @@ const ExperienceStep = ({ year, role, company, description, technologies }) => (
     <div className="lg:w-2/3 lg:pl-8 mt-4 lg:mt-0">
       <p className="text-neutral-300 mb-4">{description}</p>
       <div className="flex flex-wrap gap-2">
-        {technologies.map((tech, index) => (
+        {technologies.split(",").map((tech, index) => (
           <span
             key={index}
             className="bg-neutral-700 text-neutral-200 px-2 py-1 rounded-md text-sm"
           >
-            {tech}
+            {tech.trim()}
           </span>
         ))}
       </div>
@@ -32,27 +33,47 @@ const ExperienceStep = ({ year, role, company, description, technologies }) => (
 );
 
 const Experience = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const experiencesRef = ref(database, "experiences");
+    const unsubscribe = onValue(experiencesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        // Convert the object structure into an array of experiences
+        const experiencesArray = Object.keys(data).map((key) => data[key]);
+        setExperiences(experiencesArray);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <Element name="experience" className="border-b border-neutral-900 pb-20">
       <motion.h1
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="my-10 text-center text-4xl font-semibold "
+        className="my-10 text-center text-4xl font-semibold"
       >
         Experience
       </motion.h1>
       <div className="container mx-auto px-4">
-        {EXPERIENCES.map((experience, index) => (
-          <ExperienceStep
-            key={index}
-            year={experience.year}
-            role={experience.role}
-            company={experience.company}
-            description={experience.description}
-            technologies={experience.technologies}
-          />
-        ))}
+        {experiences.length === 0 ? (
+          <p className="text-neutral-400 text-center">Loading experiences...</p>
+        ) : (
+          experiences.map((experience, index) => (
+            <ExperienceStep
+              key={index}
+              year={experience.year}
+              role={experience.role}
+              company={experience.company}
+              description={experience.description}
+              technologies={experience.technologies}
+            />
+          ))
+        )}
       </div>
     </Element>
   );

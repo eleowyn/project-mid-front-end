@@ -11,15 +11,12 @@ const Education = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Reference to the education node in your database
     const educationRef = ref(database, 'education');
 
-    // Set up real-time listener
     const unsubscribe = onValue(educationRef, (snapshot) => {
       try {
         const data = snapshot.val();
         if (data) {
-          // Convert the object to an array if necessary
           const educationArray = Array.isArray(data) ? data : Object.values(data);
           setEducationData(educationArray);
         } else {
