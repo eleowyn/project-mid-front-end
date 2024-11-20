@@ -1,4 +1,4 @@
-console.log("Projects.jsx is renderisssng");
+//Projects.jsx);
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";

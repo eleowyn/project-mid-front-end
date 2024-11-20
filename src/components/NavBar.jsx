@@ -1,3 +1,4 @@
+//NavBar.jsx
 import { useState } from "react";
 import { GoCodeReview } from "react-icons/go";
 import { motion } from "framer-motion";

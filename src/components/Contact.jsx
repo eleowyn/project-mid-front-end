@@ -1,3 +1,4 @@
+//Contact.jsx
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { CONTACT } from "../constants/content";

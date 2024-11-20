@@ -1,6 +1,9 @@
+//Certification.jsx
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { CERTIFICATIONS } from "../constants/content";
+import { ref, onValue } from 'firebase/database';
+import { database } from '../firebase';
 
 const Certification = () => {
   return (

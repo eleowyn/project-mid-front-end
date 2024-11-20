@@ -1,3 +1,4 @@
+//About.jsx
 import { ABOUT_CONTENT } from "../constants/content";
 import profilePic from "../../assets/images/elshera-profile.jpg";
 import { Typewriter } from "react-simple-typewriter";

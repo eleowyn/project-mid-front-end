@@ -1,9 +1,64 @@
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
-import { EDUCATION } from "../constants/content";
+import { useState, useEffect } from "react";
+import { ref, onValue } from "firebase/database";
+import { database } from "../firebase";
 import { FaUniversity, FaSchool, FaGraduationCap } from "react-icons/fa";
 
 const Education = () => {
+  const [educationData, setEducationData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Reference to the education node in your database
+    const educationRef = ref(database, 'education');
+
+    // Set up real-time listener
+    const unsubscribe = onValue(educationRef, (snapshot) => {
+      try {
+        const data = snapshot.val();
+        if (data) {
+          // Convert the object to an array if necessary
+          const educationArray = Array.isArray(data) ? data : Object.values(data);
+          setEducationData(educationArray);
+        } else {
+          setEducationData([]);
+        }
+        setLoading(false);
+      } catch (err) {
+        setError('Error fetching education data');
+        setLoading(false);
+      }
+    }, (error) => {
+      setError(error.message);
+      setLoading(false);
+    });
+
+    // Cleanup subscription
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return (
+      <Element name="education" className="border-b border-neutral-900 pb-20">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400"></div>
+        </div>
+      </Element>
+    );
+  }
+
+  if (error) {
+    return (
+      <Element name="education" className="border-b border-neutral-900 pb-20">
+        <div className="text-center text-red-500 py-10">
+          {error}
+        </div>
+      </Element>
+    );
+  }
+
   return (
     <Element name="education" className="border-b border-neutral-900 pb-20">
       <motion.h1
@@ -20,7 +75,7 @@ const Education = () => {
             <div className="w-1 bg-gradient-to-b from-cyan-400 via-purple-500 to-indigo-600 h-full mx-auto"></div>
           </div>
           <div className="relative space-y-12">
-            {EDUCATION.map((item, index) => (
+            {educationData.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -30,13 +85,13 @@ const Education = () => {
               >
                 <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-indigo-600 text-white absolute -left-6">
                   {item.level === "college" && (
-                    <FaUniversity className="text-4xl " />
+                    <FaUniversity className="text-4xl" />
                   )}
                   {item.level === "higher-secondary" && (
-                    <FaSchool className="text-4xl " />
+                    <FaSchool className="text-4xl" />
                   )}
                   {item.level === "high-school" && (
-                    <FaGraduationCap className="text-4xl " />
+                    <FaGraduationCap className="text-4xl" />
                   )}
                 </div>
                 <div>
@@ -58,7 +113,7 @@ const Education = () => {
                       dangerouslySetInnerHTML={{ __html: item.degree }}
                     />
                   </p>
-                  <p className="text-gray-300 ">
+                  <p className="text-gray-300">
                     Location:{" "}
                     <span className="font-semibold">{item.location}</span>
                   </p>
